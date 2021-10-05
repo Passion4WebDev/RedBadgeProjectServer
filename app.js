@@ -15,9 +15,12 @@ app.use("/user", controllers.userController);
 dbConnection.authenticate()
 .then(() => dbConnection.sync())
 .then(() => {
-    app.listen( 3200, () => {
-        console.log(`[Server]: App is listening on 3200.`);
-    });
+    app.listen(process.env.PORT, () =>
+    console.log(`server is listening onport ${process.env.PORT}`)
+)
+    // app.listen( 3200, () => {
+    //     console.log(`[Server]: App is listening on 3200.`);
+    // });
 })
 .catch((err) => {
     console.log(`[Server]: Server crash. Error =${err}`);
